@@ -19,6 +19,12 @@ main {
   flex: 1 1 0;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 120px;
+  height: auto;
 }
 
 .canvas {
