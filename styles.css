@@ -7,11 +7,14 @@ main {
   box-sizing: border-box;
   padding: 8px;
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
 }
 
 .controls {
+  max-width: 200px;
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -22,4 +25,10 @@ main {
   display: flex;
   flex: 4 4 0;
   align-items: center;
+}
+
+.canvas div {
+  width: 512px;
+  height: 512px;
+  border: 2px solid black;
 }
