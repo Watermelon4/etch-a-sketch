@@ -1,0 +1,25 @@
+body {
+  margin: 0px;
+  display: flex;
+}
+
+main {
+  box-sizing: border-box;
+  padding: 8px;
+  height: 100vh;
+  display: flex;
+  flex: 1;
+}
+
+.controls {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.canvas {
+  display: flex;
+  flex: 4 4 0;
+  align-items: center;
+}
