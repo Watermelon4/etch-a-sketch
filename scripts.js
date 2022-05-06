@@ -74,6 +74,11 @@ function resetGrid() {
   createGrid()
 }
 
+function getGridSize() {
+  // check value of gridSize in ui
+  // need to create ui element first
+}
+
 createGrid();
 populateGrid();
 let a = 0;
