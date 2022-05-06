@@ -48,27 +48,18 @@ getSelectedColor(input) {
 }
 */
 
-const main = document.querySelector("main")
+let gridSize = 8; // simulate selection
+let gridWidthPixels = "512";
+const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
-let grid = document.createElement("div");
 
-grid.style.gridTemplate = "repeat(8, 64px) / repeat(8, 64px)";
-canvas.appendChild(grid);
-let box = document.createElement("div");
-grid.appendChild(box);
-let a = 0;
-
-function createGrid(gridSize) {
-  gridSize = Number(gridSize);
-  grid.setAttribute("class", "grid");
-  const gridStyles = getComputedStyle(grid)
-  const gridWidth = Number(gridStyles.width);
-
-  const boxWidth = gridWidth / gridSize;
-  let gridTemplateStyle = `return(${gridSize}, ${boxWidth}) / 
-                           return(${gridSize}, ${boxWidth})`;
-  grid.style.gridTemplate = gridTemplateStyle;
+function createGrid() {
+  let gridElement = document.createElement("div");
+  gridElement.setAttribute("class", "grid");
+  gridElement.style.width = `${gridWidthPixels}px`;
+  gridElement.style.height = `${gridWidthPixels}px`;
+  canvas.appendChild(gridElement);
 }
 
-let gridSize = "8";
-createGrid(gridSize);
+createGrid();
+let a = 0;
