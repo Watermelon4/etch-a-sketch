@@ -33,9 +33,7 @@ button {
   align-items: center;
 }
 
-.canvas .grid {
-  width: 512px;
-  height: 512px;
+.grid{
   border: 2px solid black;
   display: grid;
 }
