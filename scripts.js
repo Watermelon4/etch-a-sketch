@@ -48,7 +48,8 @@ getSelectedColor(input) {
 }
 */
 
-let gridSize = 8; // simulate selection
+let gridSizeInput = "8";
+let gridSize = Number(gridSizeInput); // simulate selection
 let gridWidthPixels = "512";
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
@@ -61,5 +62,16 @@ function createGrid() {
   canvas.appendChild(gridElement);
 }
 
+function populateGrid() {
+  let numBoxesToCreate = gridSize ** 2;
+  let gridElement = canvas.querySelector(".grid");
+  for (let i = 0; i < numBoxesToCreate; i++) {
+    let gridBoxElement = document.createElement("div");
+    gridBoxElement.setAttribute("id", `box-${i}`)
+    gridElement.append(gridBoxElement);
+  }
+}
+
 createGrid();
+populateGrid();
 let a = 0;
