@@ -6,13 +6,6 @@
 - reset
 - edit grid size
 
-createGrid(length) {
-  for gridlength**2 {
-  create box[i]
-  append box[i]
-  }
-}
-
 eventlistener(hover) {
   get box
 }
@@ -74,6 +67,11 @@ function populateGrid() {
     gridBoxElement.setAttribute("id", `box-${i}`)
     gridElement.append(gridBoxElement);
   }
+}
+
+function resetGrid() {
+  canvas.removeChild(canvas.firstChild);
+  createGrid()
 }
 
 createGrid();
