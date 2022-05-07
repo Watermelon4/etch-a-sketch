@@ -48,7 +48,11 @@ let gridWidth = Number(gridWidthString); // simulate
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 const controls = main.querySelector(".controls")
-const resetButton = controls.querySelector("#id")
+const resetButton = controls.querySelector("#reset")
+
+resetButton.addEventListener("click", function() {
+  resetGrid()
+});
 
 function createGrid() {
   let gridElement = document.createElement("div");
@@ -86,8 +90,9 @@ function setGridBoxEventListeners(gridBoxElement) {
 }
 
 function resetGrid() {
-  canvas.removeChild(canvas.firstChild);
-  createGrid()
+  canvas.removeChild(canvas.lastChild);
+  createGrid();
+  populateGrid();
 }
 
 function getGridSize() {
