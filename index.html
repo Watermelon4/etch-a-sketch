@@ -11,7 +11,11 @@
 <body>
   <main>
     <section class="controls">
-      <input name="Grid Size" type="range" min="8" max="100">
+      <div id="container">
+        <label for="grid-size-selector">Grid Size</label>
+        <input id="grid-size-selector" name="Grid Size" type="range" 
+               min="8" max="100">
+      </div>
       <input name="Color Picker" type="color"/>
       <button id="reset">Reset</button>
     </section>
