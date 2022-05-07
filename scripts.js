@@ -6,10 +6,6 @@
 - reset
 - edit grid size
 
-eventlistener(hover) {
-  get box
-}
-
 eventlistener(click/hold) {
   changeColor(box, color)
 }
@@ -18,22 +14,8 @@ changeBoxColor(box, color) {
   box.backGround = color
 }
 
-reset() {
-  for numBoxes {
-    box[numBox].color = white
-  }
-}
-
 editGridSize(length) {
   deleteGrid()
-}
-
-deleteGrid() {
-  delete whole grid?
-  or
-  for numBoxes {
-    del box
-  }
 }
 
 getSelectedColor(input) {
@@ -49,10 +31,10 @@ const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 const controls = main.querySelector(".controls")
 const resetButton = controls.querySelector("#reset")
+const colorPicker = controls.querySelector("#color-picker");
 
-resetButton.addEventListener("click", function() {
-  resetGrid()
-});
+resetButton.addEventListener("click", resetGrid);
+colorPicker.addEventListener("change", setColor);
 
 function createGrid() {
   let gridElement = document.createElement("div");
@@ -100,6 +82,10 @@ function getGridSize() {
   // need to create ui element first
 }
 
+function setColor() {
+  currentColor = colorPicker.value;
+}
+
 createGrid();
 populateGrid();
-let a = 0;
+// getColor();
