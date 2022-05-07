@@ -27,6 +27,7 @@ let gridSizeInput = "16"; // simulate selection
 let gridSize = Number(gridSizeInput); 
 let gridWidthString = "512";
 let gridWidth = Number(gridWidthString); // simulate
+let currentColor = "";
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 const controls = main.querySelector(".controls")
@@ -60,7 +61,7 @@ function populateGrid() {
 
 function setGridBoxEventListeners(gridBoxElement) {
   gridBoxElement.addEventListener("click", function() {
-    gridBoxElement.style.backgroundColor = "blue";
+    gridBoxElement.style.backgroundColor = `${currentColor}`;
   });
   gridBoxElement.addEventListener("mouseover", function() {
     gridBoxElement.style.border = "1px dashed grey"
