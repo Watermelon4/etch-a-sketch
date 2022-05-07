@@ -47,6 +47,8 @@ let gridWidthString = "512";
 let gridWidth = Number(gridWidthString); // simulate
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
+const controls = main.querySelector(".controls")
+const resetButton = controls.querySelector("#id")
 
 function createGrid() {
   let gridElement = document.createElement("div");
