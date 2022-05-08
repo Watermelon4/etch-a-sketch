@@ -27,17 +27,22 @@ let gridSizeInput = "16"; // simulate selection
 let gridSize = Number(gridSizeInput); 
 let gridWidthString = "512";
 let gridWidth = Number(gridWidthString); // simulate
-let currentColor = "";
+let currentColor = "grey";
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
+let grid;
 const controls = main.querySelector(".controls")
 const resetButton = controls.querySelector("#reset")
 const colorPicker = controls.querySelector("#color-picker");
 
 resetButton.addEventListener("click", resetGrid);
-colorPicker.addEventListener("change", setColor);
+colorPicker.addEventListener("change", getColor);
+
+let currentBox;
+// holdListener = setColor();
 
 function createGrid() {
+
   let gridElement = document.createElement("div");
   gridElement.setAttribute("class", "grid");
   gridElement.style.width = `${gridWidth}px`;
@@ -46,6 +51,10 @@ function createGrid() {
   let gridTemplate = `repeat(${gridSize}, ${boxSize}px) / repeat(${gridSize}, ${boxSize}px)`;
   gridElement.style.gridTemplate = gridTemplate;
   canvas.appendChild(gridElement);
+  populateGrid();
+  grid = gridElement;
+  // grid.addEventListener("mousedown", toggleContinuousColor);
+  // grid.addEventListener("mouseup", toggleContinuousColor);
 }
 
 function populateGrid() {
@@ -72,6 +81,22 @@ function setGridBoxEventListeners(gridBoxElement) {
   return gridBoxElement
 }
 
+// function enableContinuousColor() {
+//   grid.childNodes.forEach(element => {
+//     currentBox = element;
+//     element.addEventListener("mouseover", holdListener= function(event){
+//       element.style.backgroundColor = currentColor;
+//     });
+//   })
+// }
+
+// function disableContinuousColor() {
+//   grid.childNodes.forEach(element => {
+//     currentBox = element;
+//     element.removeEventListener("mouseover", holdListener)
+//   });
+// }
+
 function resetGrid() {
   canvas.removeChild(canvas.lastChild);
   createGrid();
@@ -83,10 +108,14 @@ function getGridSize() {
   // need to create ui element first
 }
 
-function setColor() {
+function getColor() {
   currentColor = colorPicker.value;
 }
 
+// function setColor() {
+//   currentBox.style.backgroundColor = currentColor;
+// }
+
 createGrid();
-populateGrid();
+// populateGrid();
 // getColor();
