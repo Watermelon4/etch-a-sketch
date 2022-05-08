@@ -23,11 +23,7 @@ getSelectedColor(input) {
 }
 */
 
-let gridSizeInput = "16"; // simulate selection
-let gridSize = Number(gridSizeInput); 
-let gridWidthString = "512";
-let gridWidth = Number(gridWidthString); // simulate
-let currentColor = "grey";
+
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 let grid;
@@ -39,6 +35,12 @@ const sizeSelector = controls.querySelector("#grid-size-selector")
 resetButton.addEventListener("click", resetGrid);
 colorPicker.addEventListener("change", getColor);
 sizeSelector.addEventListener("change", changeGridSize);
+
+let gridSizeInput = sizeSelector.value;
+let gridSize = Number(gridSizeInput); 
+let gridWidthString = "512";
+let gridWidth = Number(gridWidthString); // simulate
+let currentColor = "grey";
 
 let currentBox;
 // holdListener = setColor();
