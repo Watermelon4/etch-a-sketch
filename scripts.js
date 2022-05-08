@@ -34,12 +34,19 @@ let grid;
 const controls = main.querySelector(".controls")
 const resetButton = controls.querySelector("#reset")
 const colorPicker = controls.querySelector("#color-picker");
+const sizeSelector = controls.querySelector("#grid-size-selector")
 
 resetButton.addEventListener("click", resetGrid);
 colorPicker.addEventListener("change", getColor);
+sizeSelector.addEventListener("change", changeGridSize);
 
 let currentBox;
 // holdListener = setColor();
+
+function changeGridSize() {
+  gridSize = sizeSelector.value;
+  resetGrid();
+}
 
 function createGrid() {
 
