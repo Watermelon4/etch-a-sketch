@@ -13,6 +13,15 @@ main {
   flex-wrap: wrap;
 }
 
+header {
+  padding: 20px;
+  height: fit-content;
+  width: 100vw;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+
 .controls {
   max-width: 200px;
   display: flex;
