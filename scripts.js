@@ -1,29 +1,3 @@
-/* TODO
-- generate x boxes based on the size of the grid and append to grid
-- select boxes based on mouse hover
-- edit color of boxes when clicked or held
-- color select
-- reset
-- edit grid size
-
-eventlistener(click/hold) {
-  changeColor(box, color)
-}
-
-changeBoxColor(box, color) {
-  box.backGround = color
-}
-
-editGridSize(length) {
-  deleteGrid()
-}
-
-getSelectedColor(input) {
-  selected = input
-}
-*/
-
-
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 let grid;
@@ -39,11 +13,10 @@ sizeSelector.addEventListener("change", changeGridSize);
 let gridSizeInput = sizeSelector.value;
 let gridSize = Number(gridSizeInput); 
 let gridWidthString = "512";
-let gridWidth = Number(gridWidthString); // simulate
+let gridWidth = Number(gridWidthString);
 let currentColor = "grey";
-
 let currentBox;
-// holdListener = setColor();
+
 
 function changeGridSize() {
   gridSize = sizeSelector.value;
@@ -62,8 +35,6 @@ function createGrid() {
   canvas.appendChild(gridElement);
   populateGrid();
   grid = gridElement;
-  // grid.addEventListener("mousedown", toggleContinuousColor);
-  // grid.addEventListener("mouseup", toggleContinuousColor);
 }
 
 function populateGrid() {
@@ -90,41 +61,16 @@ function setGridBoxEventListeners(gridBoxElement) {
   return gridBoxElement
 }
 
-// function enableContinuousColor() {
-//   grid.childNodes.forEach(element => {
-//     currentBox = element;
-//     element.addEventListener("mouseover", holdListener= function(event){
-//       element.style.backgroundColor = currentColor;
-//     });
-//   })
-// }
-
-// function disableContinuousColor() {
-//   grid.childNodes.forEach(element => {
-//     currentBox = element;
-//     element.removeEventListener("mouseover", holdListener)
-//   });
-// }
-
 function resetGrid() {
   canvas.removeChild(canvas.lastChild);
   createGrid();
   populateGrid();
 }
 
-function getGridSize() {
-  // check value of gridSize in ui
-  // need to create ui element first
-}
-
 function getColor() {
   currentColor = colorPicker.value;
 }
 
-// function setColor() {
-//   currentBox.style.backgroundColor = currentColor;
-// }
+
 
 createGrid();
-// populateGrid();
-// getColor();
