@@ -1,36 +1,37 @@
 body {
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
+  margin: 0%;
+  min-width: fit-content;
 }
 
 main {
-  box-sizing: border-box;
-  height: 100vh;
-  width: 100vw;
   display: flex;
-  flex: 1;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 header {
-  padding: 20px;
-  height: fit-content;
-  width: fit-content;
-  font-size: 24px;
+  padding: 2%;
+  font-size: x-large;
+}
+
+.controls-vertical {
+  border: 1px solid grey;
+  padding: 10px;
+  max-width: 150px;
+  max-height: 512px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
-.controls {
+.controls-horizontal {
+  border: 1px solid grey;
   padding: 10px;
+  max-width: 512px;
+  max-height: 150px;
   display: flex;
-  flex: 1 1 0;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -63,7 +64,6 @@ header {
 
 button {
   width: 120px;
-  height: auto;
 }
 
 #grid-size-selector {
@@ -73,10 +73,11 @@ button {
 .canvas {
   display: flex;
   align-items: center;
-  margin: 0px 40px;
 }
 
 .grid{
-  border: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
   display: grid;
 }
