@@ -27,6 +27,11 @@ function createGrid() {
   gridElement.setAttribute("class", "grid");
   gridElement.style.width = `${gridWidth}px`;
   gridElement.style.height = `${gridWidth}px`;
+  return gridElement
+}
+
+function generateGrid() {
+  let gridElement = createGrid();
   let boxSize = Math.round(gridWidth / gridSize);
   let gridTemplate = `repeat(${gridSize}, ${boxSize}px) / repeat(${gridSize}, ${boxSize}px)`;
   gridElement.style.gridTemplate = gridTemplate;
@@ -96,9 +101,9 @@ function getColor() {
 
 function resetGrid() {
   canvas.removeChild(canvas.lastChild);
-  createGrid();
+  generateGrid();
   populateGrid();
 }
 
 // Main
-createGrid();
+generateGrid();
