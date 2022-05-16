@@ -6,8 +6,11 @@ Features implemented
 - grid reset
 - color selection
 - single pixel color change
+- continuous color change
 
 to implement
-- continuous color change
 - control wrapping on window size change
 - styles
+
+to do
+- clean variables
