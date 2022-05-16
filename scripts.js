@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
 let grid;
-const controls = main.querySelector(".controls")
+const controls = main.querySelector(".controls-vertical")
 const resetButton = controls.querySelector("#reset")
 const colorPicker = controls.querySelector("#color-picker");
 const sizeSelector = controls.querySelector("#grid-size-selector")
@@ -14,7 +14,7 @@ let gridSizeInput = sizeSelector.value;
 let gridSize = Number(gridSizeInput); 
 let gridWidthString = "512";
 let gridWidth = Number(gridWidthString);
-let currentColor = "grey";
+let currentColor = colorPicker.value;
 let currentBox;
 
 
@@ -24,7 +24,6 @@ function changeGridSize() {
 }
 
 function createGrid() {
-
   let gridElement = document.createElement("div");
   gridElement.setAttribute("class", "grid");
   gridElement.style.width = `${gridWidth}px`;
@@ -49,16 +48,32 @@ function populateGrid() {
 }
 
 function setGridBoxEventListeners(gridBoxElement) {
-  gridBoxElement.addEventListener("click", function() {
-    gridBoxElement.style.backgroundColor = `${currentColor}`;
-  });
+  gridBoxElement.addEventListener("click", applyColor)
   gridBoxElement.addEventListener("mouseover", function() {
     gridBoxElement.style.border = "1px dashed grey"
   });
   gridBoxElement.addEventListener("mouseout", function() {
     gridBoxElement.style.border = ""
   });
+  gridBoxElement.addEventListener("mousedown", enableContinuousColor)
+  gridBoxElement.addEventListener("mouseup", disableContinuousColor)
   return gridBoxElement
+}
+
+function enableContinuousColor() {
+  grid.childNodes.forEach(function (box) {
+    box.addEventListener("mouseover", applyColor)
+  })
+}
+
+function applyColor() {
+  this.style.backgroundColor = currentColor;
+}
+
+function disableContinuousColor() {
+  grid.childNodes.forEach(function (box) {
+    box.removeEventListener("mouseover", applyColor)
+  })
 }
 
 function resetGrid() {
@@ -71,6 +86,5 @@ function getColor() {
   currentColor = colorPicker.value;
 }
 
-
-
+// Main
 createGrid();
