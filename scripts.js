@@ -5,6 +5,9 @@ const resetButton = controls.querySelector("#reset")
 const colorPicker = controls.querySelector("#color-picker");
 const sizeSelector = controls.querySelector("#grid-size-selector")
 
+sizeSelector.value = 8;
+colorPicker.value = "black";
+
 resetButton.addEventListener("click", resetGrid);
 colorPicker.addEventListener("change", getColor);
 sizeSelector.addEventListener("change", changeGridSize);
@@ -76,6 +79,14 @@ function disableContinuousColor() {
 // Controls
 function changeGridSize() {
   gridSize = sizeSelector.value;
+  if (gridSize < 8) {
+    sizeSelector.value = 8;
+    gridSize = 8;
+  }
+  else if (gridSize > 100) {
+    sizeSelector.value = 100;
+    gridSize = 100;
+  }
   resetGrid();
 }
 
@@ -88,7 +99,6 @@ function resetGrid() {
   createGrid();
   populateGrid();
 }
-
 
 // Main
 createGrid();
