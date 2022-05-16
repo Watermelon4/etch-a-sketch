@@ -1,6 +1,5 @@
 const main = document.querySelector("main");
 const canvas = main.querySelector(".canvas");
-let grid;
 const controls = main.querySelector(".controls-vertical")
 const resetButton = controls.querySelector("#reset")
 const colorPicker = controls.querySelector("#color-picker");
@@ -10,6 +9,7 @@ resetButton.addEventListener("click", resetGrid);
 colorPicker.addEventListener("change", getColor);
 sizeSelector.addEventListener("change", changeGridSize);
 
+let grid;
 let gridSizeInput = sizeSelector.value;
 let gridSize = Number(gridSizeInput); 
 let gridWidthString = "512";
@@ -18,11 +18,7 @@ let currentColor = colorPicker.value;
 let currentBox;
 
 
-function changeGridSize() {
-  gridSize = sizeSelector.value;
-  resetGrid();
-}
-
+// Grid Generation
 function createGrid() {
   let gridElement = document.createElement("div");
   gridElement.setAttribute("class", "grid");
@@ -60,6 +56,7 @@ function setGridBoxEventListeners(gridBoxElement) {
   return gridBoxElement
 }
 
+// Callbacks
 function enableContinuousColor() {
   grid.childNodes.forEach(function (box) {
     box.addEventListener("mouseover", applyColor)
@@ -76,15 +73,22 @@ function disableContinuousColor() {
   })
 }
 
+// Controls
+function changeGridSize() {
+  gridSize = sizeSelector.value;
+  resetGrid();
+}
+
+function getColor() {
+  currentColor = colorPicker.value;
+}
+
 function resetGrid() {
   canvas.removeChild(canvas.lastChild);
   createGrid();
   populateGrid();
 }
 
-function getColor() {
-  currentColor = colorPicker.value;
-}
 
 // Main
 createGrid();
